@@ -4,7 +4,7 @@ import NavBar from "../pages/NavBar/NavBar";
 
 const Root = () => {
     return (
-        <div>
+        <div className=" bg-base-200">
             <NavBar></NavBar>
             <Outlet></Outlet>
         </div>
