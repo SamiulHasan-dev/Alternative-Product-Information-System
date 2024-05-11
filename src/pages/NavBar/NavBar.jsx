@@ -39,8 +39,8 @@ const NavBar = () => {
 
 
     return (
-        <div className="bg-[#2d3142] border-b border-yellow-200 py-1">
-            <div className="navbar max-w-7xl mx-auto ">
+        <div className="bg-[#2d3142] border-b border-yellow-200 py-1 ">
+            <div className="navbar max-w-7xl mx-auto">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -86,8 +86,8 @@ const NavBar = () => {
                         </div>
                     ) : (
                         <div>
-                           <Link to="/register"><button className="  text-white">Register</button></Link>
-                    <Link to="/login"><button className="btn bg-yellow-600 text-white border-0 md:mx-2">Login</button></Link>
+                           <Link to="/register"><button className="text-white mr-2 md:mr-3">Register</button></Link>
+                    <Link to="/login"><button className="btn bg-yellow-600 text-white border-0 ">Login</button></Link>
                         </div>
                     )}
                     

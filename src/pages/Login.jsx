@@ -73,7 +73,7 @@ const Login = () => {
     }
 
     return (
-        <div className="my-10 max-w-6xl mx-auto bg-base-200">
+        <div className="my-10 max-w-6xl mx-auto">
             <h2 className="text-3xl text-center font-bold py-10 rounded-lg mb-5 ">Login Now!</h2>
 
             <div className="flex flex-col w-full lg:flex-row">
