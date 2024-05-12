@@ -8,9 +8,9 @@ import img2 from '../../../public/technology-removebg-preview.png'
 const Banner = () => {
     return (
         <div className="bg-[#2d3142]">
-            <div className="max-w-7xl mx-auto ">
+            <div className="max-w-6xl mx-auto ">
                 <div className="hero md:h-[80vh]">
-                    <div className="hero-content flex-col lg:flex-row-reverse">
+                    <div className="hero-content flex-col md:flex-row-reverse">
                         <div className='w-1/2'>
 
                             <div className="carousel ">
