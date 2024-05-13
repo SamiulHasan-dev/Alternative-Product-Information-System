@@ -4,8 +4,8 @@ import Swal from "sweetalert2";
 
 
 const AddQueries = () => {
-
     const { user } = useContext(AuthContext);
+    const startTime = Date.now()
 
     const handleAddQueries = event => {
         event.preventDefault();
@@ -19,7 +19,7 @@ const AddQueries = () => {
         const name = user?.displayName;
         const email = user?.email;
         const image = user?.photoURL;
-        const currentTime = user?.metadata.creationTime;
+        const currentTime = startTime;
         const recommendationCount = 0 ;
        
         const newProduct = { productName, productBand, productImage, queryTitle, boycott,name, email, image,  currentTime, recommendationCount }

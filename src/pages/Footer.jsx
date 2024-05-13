@@ -5,8 +5,8 @@ import logo from '../../public/logo-removebg-preview.png'
 
 const Footer = () => {
     return (
-        <div className="pt-10">
-            <div className="mt-14 bg-[#2d3142]">
+        <div className="">
+            <div className="bg-[#2d3142]">
             <footer className="footer p-10  max-w-7xl mx-auto text-white">
                 <nav>
                     <div className="flex items-center gap-2 ">

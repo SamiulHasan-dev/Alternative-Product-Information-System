@@ -1,11 +1,13 @@
 import AboutUs from "../AboutUs";
 import Banner from "../Banner/Banner";
+import HomeQueries from "../HomeQueries";
 
 
 const Home = () => {
     return (
-        <div>
+        <div className=" bg-base-100">
             <Banner></Banner>
+            <HomeQueries></HomeQueries>
             <AboutUs></AboutUs>
         </div>
     );
