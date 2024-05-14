@@ -34,13 +34,13 @@ const NavBar = () => {
     const navLink = <>
         <li><NavLink className={({ isActive }) => isActive ? 'font-bold text-yellow-500 text-base' : ' text-white text-base'} to="/">Home</NavLink></li>
         <li><NavLink className={({ isActive }) => isActive ? 'font-bold text-yellow-500 text-base' : ' text-white text-base'} to="/queries">Queries</NavLink></li>
-        <li><NavLink className={({ isActive }) => isActive ? 'font-bold text-yellow-500 text-base' : ' text-white text-base'} to="/addQueries">Add Craft Item</NavLink></li>
-        <li><NavLink className={({ isActive }) => isActive ? 'font-bold text-yellow-500 text-base' : ' text-white text-base'} to="/MyQueries">My Curies</NavLink></li>
+        <li><NavLink className={({ isActive }) => isActive ? 'font-bold text-yellow-500 text-base' : ' text-white text-base'} to="/addQueries">Add Queries</NavLink></li>
+        <li><NavLink className={({ isActive }) => isActive ? 'font-bold text-yellow-500 text-base' : ' text-white text-base'} to="/MyQueries">My Queries</NavLink></li>
     </>
 
 
     return (
-        <div className="bg-[#2d3142] border-b border-yellow-200 py-1 ">
+        <div className="bg-[#2d3142] border-b border-yellow-200 py-1 " >
             <div className="navbar max-w-7xl mx-auto">
                 <div className="navbar-start">
                     <div className="dropdown">

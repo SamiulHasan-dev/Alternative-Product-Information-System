@@ -9,6 +9,7 @@ import MyQueries from "../pages/MyQueries";
 import Update from "../pages/Update";
 import PrivateRoute from "./PrivateRoute";
 import Details from "../pages/Details";
+import RecommendationForm from "../pages/RecommendationForm";
 
 
 const router = createBrowserRouter([
@@ -22,7 +23,8 @@ const router = createBrowserRouter([
         },
         {
             path: '/queries',
-            element: <Queries></Queries>
+            element: <Queries></Queries>,
+            loader: ()=> fetch('http://localhost:5000/products')
         },
         {
             path: '/login',
@@ -48,6 +50,11 @@ const router = createBrowserRouter([
         {
           path: '/details/:id',
           element: <Details></Details>,
+          loader: ({params})=> fetch(`http://localhost:5000/query/${params.id}`)
+        },
+        {
+          path: '/recommendationForm/:id',
+          element: <PrivateRoute><RecommendationForm></RecommendationForm></PrivateRoute> ,
           loader: ({params})=> fetch(`http://localhost:5000/query/${params.id}`)
         }
       ],
