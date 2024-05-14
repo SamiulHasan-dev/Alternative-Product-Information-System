@@ -10,6 +10,8 @@ import Update from "../pages/Update";
 import PrivateRoute from "./PrivateRoute";
 import Details from "../pages/Details";
 import RecommendationForm from "../pages/RecommendationForm";
+import MyRecommendation from "../pages/MyRecommendation";
+import AllRecommendation from "../pages/AllRecommendation";
 
 
 const router = createBrowserRouter([
@@ -56,6 +58,14 @@ const router = createBrowserRouter([
           path: '/recommendationForm/:id',
           element: <PrivateRoute><RecommendationForm></RecommendationForm></PrivateRoute> ,
           loader: ({params})=> fetch(`http://localhost:5000/query/${params.id}`)
+        },
+        {
+          path: '/myRecommendation',
+          element: <PrivateRoute><MyRecommendation></MyRecommendation></PrivateRoute>
+        },
+        {
+          path: '/allRecommendation',
+          element: <PrivateRoute><AllRecommendation></AllRecommendation></PrivateRoute>
         }
       ],
     },

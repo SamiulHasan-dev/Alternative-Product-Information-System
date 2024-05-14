@@ -9,26 +9,6 @@ const RecommendationForm = () => {
     const {user} = useContext(AuthContext);
 
 
-    const queryIncrease = (queries.recommendationCount + 1);
-    console.log(queryIncrease);
-    console.log(queries._id);
-
-    const handleCount = () =>{
-
-         //send data to the server
-         fetch(`http://localhost:5000/products/${queries._id}`, {
-            method: 'PUT',
-            headers: {
-                'content-type': 'application/json'
-            },
-            body: JSON.stringify(queryIncrease)
-        })
-            .then(res => res.json())
-            .then(data => {
-                console.log(data);
-            })
-
-    } 
     
 
     const handleAddRecommended = event => {
@@ -45,11 +25,11 @@ const RecommendationForm = () => {
         const userEmail = queries.email;
         const userName = queries.name;
         const recommenderEmail = user?.email;
-        const recommenderName = user?.name;
-        const newRecommendationCount = (queries.recommendationCount + 1) ;
+        const recommenderName = user?.displayName;
+        const recommendationCount = queries.recommendationCount ;
 
        
-        const newRecommendProduct = {rTitle,rProductName, rProductImage, rReason,  productId,productName, userEmail,userName , recommenderEmail, recommenderName, newRecommendationCount}
+        const newRecommendProduct = {rTitle,rProductName, rProductImage, rReason,  productId,productName, userEmail,userName , recommenderEmail, recommenderName, recommendationCount}
         console.log(newRecommendProduct);
 
         fetch('http://localhost:5000/recommendProduct', {
@@ -65,7 +45,7 @@ const RecommendationForm = () => {
                 if(data.insertedId){
                     Swal.fire({
                         title: 'Success!',
-                        text: 'Product Added Successfully',
+                        text: 'Recommendation Product Added Successfully',
                         icon: 'success',
                         confirmButtonText: 'Awesome'
                       })
@@ -120,7 +100,7 @@ const RecommendationForm = () => {
      
                     
                     <div className="form-control mt-6">
-                        <input onClick={handleCount}  type="submit" className="btn text-white bg-[#2d3142]" value="ADD RECOMMENDATION PRODUCT" />
+                        <input type="submit" className="btn text-white bg-[#2d3142]" value="ADD RECOMMENDATION PRODUCT" />
                     </div>
                 </form>
             </div>
