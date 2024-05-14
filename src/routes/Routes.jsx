@@ -12,6 +12,7 @@ import Details from "../pages/Details";
 import RecommendationForm from "../pages/RecommendationForm";
 import MyRecommendation from "../pages/MyRecommendation";
 import AllRecommendation from "../pages/AllRecommendation";
+import RecommendationsForMe from "../pages/RecommendationsForMe";
 
 
 const router = createBrowserRouter([
@@ -66,6 +67,10 @@ const router = createBrowserRouter([
         {
           path: '/allRecommendation',
           element: <PrivateRoute><AllRecommendation></AllRecommendation></PrivateRoute>
+        },
+        {
+          path: '/recommendationMe',
+          element: <PrivateRoute><RecommendationsForMe></RecommendationsForMe></PrivateRoute>
         }
       ],
     },

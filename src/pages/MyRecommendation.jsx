@@ -5,7 +5,7 @@ import Swal from "sweetalert2";
 
 
 const MyRecommendation = () => {
-    const [queries, setQueries] = useState(null)
+    const [queries, setQueries] = useState([])
 
     const { user } = useContext(AuthContext);
 
