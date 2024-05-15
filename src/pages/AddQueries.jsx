@@ -25,7 +25,7 @@ const AddQueries = () => {
         const newProduct = { productName, productBand, productImage, queryTitle, boycott,name, email, image,  currentTime, recommendationCount }
         console.log(newProduct);
 
-        fetch('http://localhost:5000/products', {
+        fetch('https://product-verse-server.vercel.app/products', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

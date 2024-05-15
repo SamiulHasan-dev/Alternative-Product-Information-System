@@ -29,7 +29,7 @@ const router = createBrowserRouter([
         {
             path: '/queries',
             element: <Queries></Queries>,
-            loader: ()=> fetch('http://localhost:5000/products')
+            loader: ()=> fetch('https://product-verse-server.vercel.app/products')
         },
         {
             path: '/login',
@@ -41,7 +41,7 @@ const router = createBrowserRouter([
         },
         {
             path: '/addQueries',
-            element: <AddQueries></AddQueries>
+            element: <PrivateRoute><AddQueries></AddQueries></PrivateRoute>
         },
         {
           path: '/myQueries',
@@ -50,17 +50,17 @@ const router = createBrowserRouter([
         {
           path: '/update/:id',
           element: <PrivateRoute><Update></Update></PrivateRoute>,
-          loader: ({params})=> fetch(`http://localhost:5000/query/${params.id}`)
+          loader: ({params})=> fetch(`https://product-verse-server.vercel.app/query/${params.id}`)
         },
         {
           path: '/details/:id',
-          element: <Details></Details>,
-          loader: ({params})=> fetch(`http://localhost:5000/query/${params.id}`)
+          element: <PrivateRoute><Details></Details></PrivateRoute>,
+          loader: ({params})=> fetch(`https://product-verse-server.vercel.app/query/${params.id}`)
         },
         {
           path: '/recommendationForm/:id',
           element: <PrivateRoute><RecommendationForm></RecommendationForm></PrivateRoute> ,
-          loader: ({params})=> fetch(`http://localhost:5000/query/${params.id}`)
+          loader: ({params})=> fetch(`https://product-verse-server.vercel.app/query/${params.id}`)
         },
         {
           path: '/myRecommendation',

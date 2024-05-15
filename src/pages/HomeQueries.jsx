@@ -13,7 +13,7 @@ const HomeQueries = () => {
     }, [])
 
     useEffect(() => {
-        fetch('http://localhost:5000/productsHome')
+        fetch('https://product-verse-server.vercel.app/productsHome')
             .then(res => res.json())
             .then(data => setProducts(data))
     }, [])
@@ -24,19 +24,19 @@ const HomeQueries = () => {
         <div className="max-w-5xl mx-auto">
 
             <div className="my-10 space-y-2">
-                <h2 className="text-3xl font-bold text-center text-yellow-500">Our Product</h2>
+            <h2 className="text-3xl font-bold text-center text-yellow-500 ">Our Product</h2>
                 <Fade>
-                    <p className="text-center w-[70%] mx-auto text-slate-600">Our craft collection of DIY projects a community where crafters of all levels can come together to share ideas, tips, and inspiration, a creative outlet, or simply some inspiration, we invite you to dive into our craft section and unleash your imagination.</p>
+                <p className="text-center text-slate-600">A focus on seamless integration and intuitive control, our system brings together cutting-edge technology and elegant design to elevate every corner of your home. Imagine effortlessly adjusting lighting, temperature, and ambiance to suit</p>
                 </Fade>
 
 
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-7">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 ">
                 {
                     products?.slice(0, 6).map(product =>
                         <div key={product._id} data-aos="zoom-in">
                             <div className="card card-compact bg-base-100 shadow-xl">
-                                <figure><img src={product.productImage} alt="Shoes" /></figure>
+                                <figure><img src={product.productImage} alt="Shoes" className="w-full" /></figure>
                                 <div className="card-body">
                                     <h2 className="card-title font-extrabold">{product.productName}</h2>
                                     <p><span className="font-bold text-base">Brand: </span> {product.productBand}</p>

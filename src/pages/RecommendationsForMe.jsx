@@ -9,7 +9,7 @@ const RecommendationsForMe = () => {
     console.log(queries)
 
     useEffect(() => {
-        fetch(`http://localhost:5000/recommendOthers/${user?.email}`)
+        fetch(`https://product-verse-server.vercel.app/recommendOthers/${user?.email}`)
             .then(res => res.json())
             .then(data => {
                 setQueries(data);

@@ -2,8 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../provider/AuthProvider";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
-import AOS from 'aos';
-import 'aos/dist/aos.css';
+
 
 
 const MyQueries = () => {
@@ -15,16 +14,14 @@ const MyQueries = () => {
     console.log(queries)
 
     useEffect(() => {
-        fetch(`http://localhost:5000/products/${user?.email}`, {credentials: 'include'})
+        fetch(`https://product-verse-server.vercel.app/products/${user?.email}`, {credentials: 'include'})
             .then(res => res.json())
             .then(data => {
                 setQueries(data);
             })
     }, [user]);
 
-    useEffect(()=>{
-        AOS.init();
-    },[])
+   
 
 
     const handleDelete = id => {
@@ -38,7 +35,7 @@ const MyQueries = () => {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/products/${id}`, {
+                fetch(`https://product-verse-server.vercel.app/products/${id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())
@@ -82,7 +79,7 @@ const MyQueries = () => {
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
                     {
-                        queries?.map(querie => <div key={querie._id} data-aos="fade-down" data-aos-duration="4000">
+                        queries?.map(querie => <div key={querie._id} >
                             <div className="card card-compact bg-base-100 shadow-xl">
                                 <figure><img src={querie.productImage} className="w-full h-[230px]" alt="Shoes" /></figure>
                                 <div className="card-body">

@@ -34,10 +34,17 @@ const NavBar = () => {
     const navLink = <>
         <li><NavLink className={({ isActive }) => isActive ? 'font-bold text-yellow-500 text-sm' : ' text-white text-sm'} to="/">Home</NavLink></li>
         <li><NavLink className={({ isActive }) => isActive ? 'font-bold text-yellow-500 text-sm' : ' text-white text-sm'} to="/queries">Queries</NavLink></li>
-        <li><NavLink className={({ isActive }) => isActive ? 'font-bold text-yellow-500 text-sm' : ' text-white text-sm'} to="/MyQueries">My Queries</NavLink></li>
-        <li><NavLink className={({ isActive }) => isActive ? 'font-bold text-yellow-500 text-sm' : ' text-white text-sm'} to="/myRecommendation">My Recommendation</NavLink></li>
-        <li><NavLink className={({ isActive }) => isActive ? 'font-bold text-yellow-500 text-sm' : ' text-white text-sm'} to="/allRecommendation">All Recommendation</NavLink></li>
-        <li><NavLink className={({ isActive }) => isActive ? 'font-bold text-yellow-500 text-sm' : ' text-white text-sm'} to="/recommendationMe">Recommendation For Me</NavLink></li>
+        {
+            user ?
+                <>
+                    <li><NavLink className={({ isActive }) => isActive ? 'font-bold text-yellow-500 text-sm' : ' text-white text-sm'} to="/MyQueries">My Queries</NavLink></li>
+                    <li><NavLink className={({ isActive }) => isActive ? 'font-bold text-yellow-500 text-sm' : ' text-white text-sm'} to="/myRecommendation">My Recommendation</NavLink></li>
+                    <li><NavLink className={({ isActive }) => isActive ? 'font-bold text-yellow-500 text-sm' : ' text-white text-sm'} to="/allRecommendation">All Recommendation</NavLink></li>
+                    <li><NavLink className={({ isActive }) => isActive ? 'font-bold text-yellow-500 text-sm' : ' text-white text-sm'} to="/recommendationMe">Recommendation For Me</NavLink></li>
+                </>
+                : ''
+        }
+
     </>
 
 
@@ -76,28 +83,28 @@ const NavBar = () => {
                     {user ? (
                         <div className="flex items-center gap-3">
                             <div className="dropdown dropdown-end">
-                            <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
-                                <div className="w-10 rounded-full">
-                                <img
-                                    alt="user pic"
-                                    src={user?.photoURL || "https://i.ibb.co/p3d9pYn/user.png"}
-                                />
+                                <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
+                                    <div className="w-10 rounded-full">
+                                        <img
+                                            alt="user pic"
+                                            src={user?.photoURL || "https://i.ibb.co/p3d9pYn/user.png"}
+                                        />
+                                    </div>
                                 </div>
+                                <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-[#2d3142] rounded-box w-52 text-yellow-500 font-semibold text-base">
+                                    <li><Link to='/recommendationMe'>Recommendation For Me</Link></li>
+                                    <li><Link onClick={handleSignOut}>Log Out</Link></li>
+                                </ul>
                             </div>
-                            <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-[#2d3142] rounded-box w-52 text-yellow-500 font-semibold text-base">
-                                <li><Link to='/recommendationMe'>Recommendation For Me</Link></li>
-                                <li><Link onClick={handleSignOut}>Log Out</Link></li>
-                            </ul>
-                        </div>
                             <Link to="/"><button onClick={handleSignOut} className="btn bg-yellow-600 text-white border-0  md:ml-2">Log Out</button></Link>
                         </div>
                     ) : (
                         <div>
-                           <Link to="/register"><button className="text-white mr-2 md:mr-3">Register</button></Link>
-                    <Link to="/login"><button className="btn bg-yellow-600 text-white border-0 ">Login</button></Link>
+                            <Link to="/register"><button className="text-white mr-2 md:mr-3">Register</button></Link>
+                            <Link to="/login"><button className="btn bg-yellow-600 text-white border-0 ">Login</button></Link>
                         </div>
                     )}
-                    
+
                 </div>
             </div>
         </div>

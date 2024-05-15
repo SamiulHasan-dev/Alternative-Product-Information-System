@@ -6,17 +6,17 @@ import { SlCalender } from "react-icons/sl";
 
 const FamilySection = () => {
     return (
-        <div className="max-w-6xl mx-auto mb-8 mt-6">
+        <div className="max-w-5xl mx-auto mb-8 mt-6">
             <div className=" py-4 rounded-lg mt-7 mb-1">
                 <h2 className="text-3xl font-bold text-center text-yellow-500">About Family</h2>
             </div>
             <Fade>
-            <p className="mb-7 text-center w-3/4 mx-auto text-slate-600"> Featuring modern amenities and plush furnishings to ensure a restful Crafts. </p>
+            <p className="mb-7 text-center w-3/4 mx-auto text-slate-600"> Featuring modern amenities and plush furnishings to ensure a restful Products. </p>
             </Fade>
 
-            <div className="flex flex-col md:flex-row gap-10">
+            <div className="flex flex-col md:flex-row md:gap-3">
                 {/* card 1 */}
-                <div className="card bg-base-100  flex-1" data-aos="fade-right"  data-aos-duration="1000" >
+                <div className="card bg-base-100  flex-1" data-aos="fade-up"  data-aos-duration="1000" >
                     <figure className="px-10 pt-10">
                         <SlCalender className="text-4xl font-extrabold text-[#0ea5e9]"></SlCalender>
                     </figure>
@@ -47,7 +47,7 @@ const FamilySection = () => {
                     </div>
                 </div>
                 {/* card 4 */}
-                <div className="card bg-base-100 flex-1" data-aos="fade-left"  data-aos-duration="1000" >
+                <div className="card bg-base-100 flex-1" data-aos="fade-up"  data-aos-duration="1000" >
                     <figure className="px-10 pt-10">
                         
                     <MdOutlineRecommend className="text-4xl font-extrabold text-[#06b6d4]" />

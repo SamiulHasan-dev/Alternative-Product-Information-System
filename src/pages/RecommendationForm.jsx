@@ -32,7 +32,7 @@ const RecommendationForm = () => {
         const newRecommendProduct = {rTitle,rProductName, rProductImage, rReason,  productId,productName, userEmail,userName , recommenderEmail, recommenderName, recommendationCount}
         console.log(newRecommendProduct);
 
-        fetch('http://localhost:5000/recommendProduct', {
+        fetch('https://product-verse-server.vercel.app/recommendProduct', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

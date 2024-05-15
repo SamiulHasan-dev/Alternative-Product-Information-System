@@ -12,7 +12,7 @@ const MyRecommendation = () => {
     console.log(queries)
 
     useEffect(() => {
-        fetch(`http://localhost:5000/recommendProduct/${user?.email}`, {credentials: 'include'})
+        fetch(`https://product-verse-server.vercel.app/recommendProduct/${user?.email}`, {credentials: 'include'})
             .then(res => res.json())
             .then(data => {
                 setQueries(data);
@@ -30,7 +30,7 @@ const MyRecommendation = () => {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/recommendProductId/${id}`, {
+                fetch(`https://product-verse-server.vercel.app/recommendProductId/${id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())
