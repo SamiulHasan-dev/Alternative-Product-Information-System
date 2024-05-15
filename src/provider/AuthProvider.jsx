@@ -1,6 +1,7 @@
 import { GithubAuthProvider, GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
 import { createContext, useEffect, useState } from "react";
 import app from "../firebase/firebase.config";
+import axios from "axios";
 
 
 
@@ -71,17 +72,31 @@ const AuthProvider = ({children}) => {
         return signInWithEmailAndPassword(auth, email, password);
     }
 
-    useEffect(()=>{
-        const unsubscribe = onAuthStateChanged(auth, currentUser=>{
-            console.log('user in the auth state change', currentUser);
+    useEffect(() => {
+        const unSubscribe = onAuthStateChanged(auth, currentUser => {
+            const userEmail = currentUser?.email || user?.email;
             setUser(currentUser);
+            console.log('current user', currentUser);
+            const loggedUser = {email: userEmail};
             setLoading(false);
-            
+
+            if(currentUser){
+                axios.post('http://localhost:5000/jwt', loggedUser, {withCredentials: true})
+                .then(res => {
+                    console.log('token response', res.data);
+                })
+            }
+            else{
+                axios.post('http://localhost:5000/logout', loggedUser, {withCredentials: true})
+                .then(res => {
+                    console.log(res.data)
+                })
+            }
         });
         return () => {
-            unsubscribe();
-        };
-    },[])
+            unSubscribe();
+        }
+    }, []);
 
     const authInfo = {user,createUser, logOut, signIn, logInWithGoogle, loading, logInWithGitHub, profileUpdate}
     return (

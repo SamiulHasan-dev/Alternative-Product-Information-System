@@ -1,10 +1,16 @@
 import { useEffect, useState } from "react";
 import { Fade } from "react-awesome-reveal";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 
 
 const HomeQueries = () => {
     const [products, setProducts] = useState([])
+
+    useEffect(() => {
+        AOS.init();
+    }, [])
 
     useEffect(() => {
         fetch('http://localhost:5000/productsHome')
@@ -18,7 +24,7 @@ const HomeQueries = () => {
         <div className="max-w-5xl mx-auto">
 
             <div className="my-10 space-y-2">
-                <h2 className="text-3xl font-bold text-center">Our Crafts</h2>
+                <h2 className="text-3xl font-bold text-center text-yellow-500">Our Product</h2>
                 <Fade>
                     <p className="text-center w-[70%] mx-auto text-slate-600">Our craft collection of DIY projects a community where crafters of all levels can come together to share ideas, tips, and inspiration, a creative outlet, or simply some inspiration, we invite you to dive into our craft section and unleash your imagination.</p>
                 </Fade>
@@ -28,7 +34,7 @@ const HomeQueries = () => {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-7">
                 {
                     products?.slice(0, 6).map(product =>
-                        <div key={product._id}>
+                        <div key={product._id} data-aos="zoom-in">
                             <div className="card card-compact bg-base-100 shadow-xl">
                                 <figure><img src={product.productImage} alt="Shoes" /></figure>
                                 <div className="card-body">

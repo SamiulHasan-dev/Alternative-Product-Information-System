@@ -1,17 +1,26 @@
 import { Link } from "react-router-dom";
 import img1 from '../../../public/Pc-removebg-preview.png'
 import img2 from '../../../public/technology-removebg-preview.png'
+import AOS from 'aos';
+import 'aos/dist/aos.css'; // You can also use <link> for styles
+import { useEffect } from "react";
 
 
 
 
 const Banner = () => {
+
+
+    useEffect(()=>{
+        AOS.init();
+    },[])
+
     return (
         <div className="bg-[#2d3142]" >
             <div className="max-w-6xl mx-auto ">
                 <div className="hero md:h-[80vh]">
                     <div className="hero-content flex-col md:flex-row-reverse">
-                        <div className='w-1/2'>
+                        <div className='w-1/2' data-aos="fade-up" data-aos-duration="4000">
 
                             <div className="carousel ">
                                 <div id="slide1" className="carousel-item relative w-full">
@@ -32,7 +41,7 @@ const Banner = () => {
 
                         </div>
 
-                        <div className='md:w-1/2 space-y-3'>
+                        <div className='md:w-1/2 space-y-3' data-aos="fade-right" data-aos-duration="4000">
                             <h3 className="font-bold text-base text-yellow-700">Dive into Vast</h3>
                             <h1 className="font-bold text-3xl text-white">Where Innovation Meets Information <br />
                                 Welcome to<span className="font-bold text-yellow-500">, ProductVerses</span></h1>
