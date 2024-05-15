@@ -18,14 +18,14 @@ const Banner = () => {
     return (
         <div className="bg-[#2d3142]" >
             <div className="max-w-6xl mx-auto ">
-                <div className="hero md:h-[80vh]">
+                <div className="hero md:h-[80vh] ">
                     <div className="hero-content flex-col md:flex-row-reverse">
                         <div className='w-1/2'>
 
                             <div className="carousel ">
                                 <div id="slide1" className="carousel-item relative w-full">
                                     <img src={img1} className="rounded-lg md:h-[350px] w-full md:w-[450px]" />
-                                    <div className="absolute flex  gap-3 justify-between transform -translate-y-1/2  bottom-5 right-8">
+                                    <div className=" absolute flex  gap-3 justify-between transform -translate-y-1/2  bottom-5 right-8">
                                         <a href="#slide2" className="btn btn-circle bg-[#2d3142] text-white border-none">❮</a>
                                         <a href="#slide2" className="btn btn-circle bg-[#2d3142] text-white border-none">❯</a>
                                     </div>
