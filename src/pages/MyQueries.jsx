@@ -2,6 +2,8 @@ import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../provider/AuthProvider";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 
 const MyQueries = () => {
@@ -19,6 +21,11 @@ const MyQueries = () => {
                 setQueries(data);
             })
     }, [user]);
+
+    useEffect(()=>{
+        AOS.init();
+    },[])
+
 
     const handleDelete = id => {
         Swal.fire({
@@ -75,7 +82,7 @@ const MyQueries = () => {
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
                     {
-                        queries?.map(querie => <div key={querie._id}>
+                        queries?.map(querie => <div key={querie._id} data-aos="fade-down" data-aos-duration="4000">
                             <div className="card card-compact bg-base-100 shadow-xl">
                                 <figure><img src={querie.productImage} className="w-full h-[230px]" alt="Shoes" /></figure>
                                 <div className="card-body">

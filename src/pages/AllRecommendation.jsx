@@ -1,5 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../provider/AuthProvider";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 
 const AllRecommendation = () => {
@@ -16,6 +18,10 @@ const AllRecommendation = () => {
                 setQueries(data);
             })
     }, [user]);
+
+    useEffect(()=>{
+        AOS.init();
+    },[])
 
     return (
         <div className="max-w-5xl mx-auto my-10"> 
