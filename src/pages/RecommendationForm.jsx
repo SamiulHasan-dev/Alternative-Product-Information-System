@@ -94,7 +94,8 @@ const RecommendationForm = () => {
                             <label className="label">
                                 <span className="label-text font-semibold">Recommendation reason</span>
                             </label>
-                            <input name="rReason" type="text" placeholder="Recommendation reason" className="input input-bordered" required />
+
+                            <input name="rReason" type="text" placeholder="Recommendation Reason" className="input input-bordered" required />
                         </div>
                     </div>
      
